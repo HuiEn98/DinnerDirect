@@ -3,6 +3,7 @@
 //making this a function
 
 require_once('databasephp.php');
+session_start();
 
 //ALTER THE TABLE DEFAULT VALUES FOR ALL THE REQUIRED COLUMNS 05/02/2019
 mysqli_query($link,"ALTER TABLE customers
@@ -35,7 +36,9 @@ if (mysqli_num_rows($result) > 0) {
     echo "Welcome";
     echo $user['first_name'];
     echo $user['last_name'];
-    $GLOBALS['userID']=$user['customerID'];
+    $userID=$user['customerID'];
+    $_SESSION['userID']=$userID;
+    echo $userID; //test to make sure customer id in sql database corresponds
     //header('Location: http://localhost/DinnersDirecHuiEn/startbootstrap-shop-homepage-gh-pages/index.html');
     //exit;
 } else {
@@ -44,4 +47,4 @@ if (mysqli_num_rows($result) > 0) {
         closeDb($connection);
 }
 ?>
-<meta http-equiv="refresh" content="2;url=../index.html">
+<meta http-equiv="refresh" content="1;url=../index.html">

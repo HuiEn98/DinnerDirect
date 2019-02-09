@@ -1,21 +1,30 @@
 <?php
 
-require_once('databasephp.php');
+//require_once('databasephp.php');
+$connection = connectToDb();
+session_start();
+
 //$srch_term = $_GET['srch-term'] ?? '1'; //PHP 7.0
 //$srch= $_GET['srch-term'] ?? '1'; //dataphp 7.0
 //echo "$srch";
-$query = "SELECT * FROM orders WHERE customerID = '" . $GLOBALS['userID']."'";
 
-$connection = connectToDb();
+$userIDpullorderdatainstance=$_SESSION['userID'];//$y is any declared variable
+echo $userIDpullorderdatainstance;
+
+
+$query = "SELECT * FROM orders WHERE customerID = 1";
+
 //search database
 //check if the variable has not been initalized
 $result = mysqli_query($connection, $query);
 if (empty($result)){
     exit("databasePhp query failed, the result does not exist.");
+
 }
 
 $user = mysqli_fetch_assoc($result);
 if (empty($user)) {
+
     exit("database Php query failed, result does not exist.");
 
 }
