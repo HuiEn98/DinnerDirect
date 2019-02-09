@@ -36,8 +36,12 @@ if (mysqli_num_rows($result) > 0) {
     echo $user['first_name'];
     echo $user['last_name'];
     $GLOBALS['userID']=$user['customerID'];
+    //header('Location: http://localhost/DinnersDirecHuiEn/startbootstrap-shop-homepage-gh-pages/index.html');
+    //exit;
 } else {
         echo "Cannot find the selected user. Please try again or create a new account.";
         echo "$emailSql, $passwordSQL";
         closeDb($connection);
 }
+?>
+<meta http-equiv="refresh" content="2;url=../index.html">
