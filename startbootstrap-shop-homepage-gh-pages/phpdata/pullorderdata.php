@@ -1,6 +1,6 @@
 <?php
 
-//require_once('databasephp.php');
+require_once('databasephp.php');
 $connection = connectToDb();
 session_start();
 
@@ -12,7 +12,7 @@ $userIDpullorderdatainstance=$_SESSION['userID'];//$y is any declared variable
 echo $userIDpullorderdatainstance;
 
 
-$query = "SELECT * FROM orders WHERE customerID = 1";
+$query = "SELECT * FROM orders WHERE customerID = '" . $userIDpullorderdatainstance."'";
 
 //search database
 //check if the variable has not been initalized
@@ -38,10 +38,7 @@ mysqli_free_result($result);
 //mysqli_close($connection);
 
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
 
     <meta charset="utf-8">
@@ -52,10 +49,10 @@ mysqli_free_result($result);
     <title>Welcome to Dinners Direct</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/shop-homepage.css" rel="stylesheet">
+    <link href="../css/shop-homepage.css" rel="stylesheet">
 
 </head>
 
@@ -64,30 +61,30 @@ mysqli_free_result($result);
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     < class="container">
-    <a class="navbar-brand" href="index.html">Dinners Direct</a>
+    <a class="navbar-brand" href="../index.html">Dinners Direct</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class=index.html" collapse="navbar-collapse" id="navbarResponsive" >
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home
+                <a class="nav-link" href="../index.html">Home
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="../about.html">About</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="MyAccount.html">MyAccount</a>
+                <a class="nav-link" href="../MyAccount.html">MyAccount</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="createnewaccount.html">Create a New Account</a>
+                <a class="nav-link" href="../createnewaccount.html">Create a New Account</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="order.html">Order</a>
+                <a class="nav-link" href="../order.html">Order</a>
                 <!--<a class="nav-link text-uppercase text-expanded" href="products.html">Products</a>!-->
             </li>
         </ul>
@@ -143,11 +140,10 @@ mysqli_free_result($result);
 
 
 <!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
-
 </html>
 
 
